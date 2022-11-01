@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+## 웹서비스
+https://project07-f8f8a.web.app  
+  
+## PWA호스팅 
+https://kyunggwan.github.io/Project7_Movie  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 0.리액트 왜 쓰는가
+프론트앤드 라이브러리로 DOM관리와 상태 변화 관리 최소화  
+Component 단위 작성 -> 생산성과 유지 보수 용이 (재사용 기능)  
+JSX(Javascript + xml)  
+Virtual DOM -> 랜더링 과정이 필요 없기 때문에 연산 비용 절감 
 
-## Available Scripts
+### 1.리액트 설치 및 실행, 파일 구조
+npx create-react-app 프로젝트명 (리액트 셋팅 다 된 boilerplate/만들기 쉽게 도와주는 라이브러리)  
+npm start 코드 짠 걸 미리보기 띄우기  
+-node_modules: 라이브러리 모은 폴더  
+-App.js: 메인페이지에 들어갈 HTML 짜는 곳  
+-public/index.html: 메인페이지  
+-public: static 파일 보관함  
+-src: 소스코드 보관함  
+-package.json: 설치한 라이브러리 목록  
 
-In the project directory, you can run:
+### 2. 리액트 JSX 사용법
+1. 태그에 class를 주고싶으면? -> className="" (class 는 예약어)  
+2. 리액트에서 데이터 바인딩 쉽게하는 법 -> {변수명,함수}  
+  	1. < img src={logo}/ >  
+3. JSX 에서 style 속성 집어넣을 때 -> style={object 자료형으로 만든 스타일}  
+  	1. < div style={{ color:'blue', fontSize:'30px' }} / >  
 
-### `npm start`
+### 3.리액트에선 변수말고 state  
+변수 대신 쓰는 데이터 저장공간  
+userState()를 이용해서 만들어야함  
+문자, 숫자, array, object 다 저장 가능  
+{ useState }상단에 첨부  
+let [a,b]=userState('데이터명');  
+[state데이터,state 데이터 변경 함수 ]  
+state는 변경되면 HTML이 자동으로 재렌더링이 됩니다(새로고침 필요없음).  
+그냥 변수는 변경되어도 자동으로 렌더링 안됨(새로고침 필요함)  
+자주 바뀌는, 중요한 데이터는 state에 저장 필요 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 4.이벤트 리스너
+onClick={클릭될 때 실행할 함수}  
+onClick={()=>{실행할 내용}}  
+state변경함수로 변경해서 재렌더링 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 5.state 맘대로 변경하는 법
+수정된 데이터를 만들기( 단 원본 state 수정x)-> state의 복사본을 만들어서 수정 -> deep copy(값을 공유하는 것이 아니라 서로 독립적인 값을 가지는 복사)  
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 6.Comonent로 HTML 깔끔하게 줄이는 법  
+함수 만들고 이름 짓기  
+이름은 대괄호  
+축약을 원하는 HTML 넣고  
+return()안에 있는건 태그 하나로 묶어야함(의미없는 < div > 쓰기 싫으면 < > < />)  
+원하는 곳에서 <함수명/>  
+어떤걸 component로 만드는게 좋을까  
+반복출현하는 HTML 덩어리들  
+자주 변경되는 HTML UI들  
+다른 페이지 만들 때도 컴포넌트로 만듦  

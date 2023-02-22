@@ -1,7 +1,4 @@
 ## 웹서비스
-https://project07-f8f8a.web.app  
-  
-## PWA호스팅 
 https://kyunggwan.github.io/Project7_Movie  
 
 ### 0.리액트 왜 쓰는가

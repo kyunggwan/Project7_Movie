@@ -15,7 +15,7 @@ export default function Boxoffice () {
   //URL로 정보 불러오기
   const getBoxoffice = async(d) => {
   let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?';
-  url = url + 'key'+'=f5eef3421c602c6cb7ea224104795888';
+  url = url + 'key'+'=fb1b0d9cbffc43741a75a891b653faae';
   url = url + '&targetDt=' + d;
 
   //try-catch 구문에 넣는다(마지막)
@@ -57,9 +57,10 @@ useEffect(() => {
 
 //날짜 바뀔 때마다 리스트 바뀌는 부분
 useEffect(() => {
-  (viewDay && setviewDay(viewDay.substring(0,4) +'.'+viewDay.substring(4,4)))
-  //박스 오피스 open API 호출
-getBoxoffice(viewDay);
+  // viewDay가 있을 때만 API 호출
+  if (viewDay) {
+    getBoxoffice(viewDay);
+  }
 }, [viewDay])
 
   //event 함수

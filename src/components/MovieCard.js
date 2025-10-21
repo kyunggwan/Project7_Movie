@@ -29,15 +29,6 @@ const MovieCard = ({ movie, isSearchResult = false }) => {
     alert(`${movie.movieNm} 예매 페이지로 이동합니다!`);
   };
 
-  const formatDate = (dateString) => {
-    if (!dateString) return '미정';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).replace(/\./g, '.').replace(/\s/g, '');
-  };
 
   return (
     <div className={`movie-card ${isSearchResult ? 'search-result' : ''}`}>

@@ -41,10 +41,6 @@ function Boxmv() {
     loadMovieInfo(mvcd);
   }, [mvcd]);
 
-  // 홈 버튼 클릭 핸들러
-  const handleHomeClick = () => {
-    navigate('/');
-  };
 
   return (
     <div className="app-container">

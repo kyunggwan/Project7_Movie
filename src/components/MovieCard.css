@@ -1,0 +1,382 @@
+/* 기본 영화 카드 스타일 */
+.movie-card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.movie-card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 박스오피스 카드 스타일 */
+.movie-card:not(.search-result) {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.movie-card:not(.search-result)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.movie-card:not(.search-result):hover::before {
+  width: 6px;
+}
+
+.rank-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 80px;
+}
+
+.rank-icon {
+  font-size: 20px;
+}
+
+.rank-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #667eea;
+  min-width: 30px;
+}
+
+.movie-info {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.movie-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+.stats-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.sales-share {
+  font-size: 16px;
+  font-weight: 600;
+  color: #764ba2;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.audience-count {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 검색 결과 카드 스타일 */
+.movie-card.search-result {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.movie-poster {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.poster-placeholder {
+  font-size: 4rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.movie-badges {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.mega-only {
+  background: #8b5cf6;
+  color: white;
+}
+
+.badge.rank-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.movie-details {
+  padding: 20px;
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+}
+
+.movie-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.meta-value {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.movie-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.movie-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: white;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.like-button:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  background: #fff5f5;
+}
+
+.like-button.liked {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  background: #fff5f5;
+}
+
+.reservation-button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.reservation-button:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .movie-card:not(.search-result) {
+    padding: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .rank-section {
+    min-width: 60px;
+  }
+  
+  .rank-number {
+    font-size: 20px;
+  }
+  
+  .movie-name {
+    font-size: 16px;
+  }
+  
+  .stats-section {
+    min-width: 100px;
+  }
+  
+  .sales-share {
+    font-size: 14px;
+  }
+  
+  .audience-count {
+    font-size: 12px;
+  }
+
+  .movie-poster {
+    height: 150px;
+  }
+
+  .poster-placeholder {
+    font-size: 3rem;
+  }
+
+  .movie-details {
+    padding: 15px;
+  }
+
+  .movie-title {
+    font-size: 1.1rem;
+  }
+
+  .movie-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .like-button {
+    align-self: flex-start;
+  }
+
+  .reservation-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card:not(.search-result) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .rank-section {
+    order: 1;
+  }
+  
+  .movie-info {
+    order: 2;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .stats-section {
+    order: 3;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .movie-poster {
+    height: 120px;
+  }
+
+  .poster-placeholder {
+    font-size: 2.5rem;
+  }
+}
